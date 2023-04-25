@@ -1,0 +1,85 @@
+.page-entry-header,
+.archive-page-header,
+.search-page-header {
+    border-bottom: none;
+}
+
+.page-entry-title,
+.archive-page-title,
+.search-page-title {
+    background: none;
+    color: rgba(0, 0, 0, 0.9);
+    margin-top: 10px;
+}
+
+.content-area {
+    background-color: white;
+    padding: 30px;
+}
+
+.site-branding {
+    min-height: 80px;
+}
+
+body {
+
+    font-size: 16px;
+}
+
+.page-entry-title {
+    font-size: 2.6rem;
+    padding: 0;
+    margin: 0;
+    color: #daa520;
+}
+
+.main-navigation {
+    background: #fff;
+}
+
+.main-navigation a {
+    font-family: 'Roboto', 'serif';
+    letter-spacing: 1.2px;
+    color: #0038a5;
+}
+
+.main-navigation ul ul {
+    background-color: #fff;
+}
+
+.main-navigation ul ul a {
+    color: #0038a5;
+}
+
+#main-nav-button,
+#top-nav-button {
+    background: #fff;
+    color: #0038a5;
+}
+
+.responsive-mainnav,
+.responsive-topnav {
+    background: #fff;
+}
+
+.responsive-mainnav li a,
+.responsive-topnav li a {
+    color: #0038a5;
+}
+
+.footer-site-info {
+    background: #f5f5f7;
+    color: #424245;
+}
+
+.footer-site-info a {
+    color: #424245;
+}
+
+.main-navigation ul ul a:hover {
+    background: #0038a5;
+}
+
+.menu-main-menu-container {
+    padding-left: 10px;
+}
