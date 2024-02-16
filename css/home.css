@@ -4,6 +4,15 @@ body {
     font-size: 15px;
     /* letter-spacing: 0.4px; */
 }
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.logo {
+    margin-right: 10px;
+}
 .ls-1 {
     letter-spacing: 1px;
 }
@@ -11,14 +20,15 @@ body {
     letter-spacing: 2px;
 }
 .social .fa {
-    padding: 20px;
-    font-size: 30px;
-    width: 70px;
+    padding: 10px;
+    font-size: 20px;
+    width: 40px;
     text-align: center;
     text-decoration: none;
     margin: 5px 2px;
     border-radius: 50%;
 }
+
 
 .social .fa:hover {
     opacity: 0.7;
