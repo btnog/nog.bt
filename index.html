@@ -2,122 +2,370 @@
 <html lang="en">
 
 <head>
-  <title>btNOG</title>
+  <title>btNOG - Bhutan Network Operators Group</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="css/home.css" rel="stylesheet">
+  <!-- Modern fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --secondary: #3498db;
+      --accent: #e74c3c;
+      --light: #f8f9fa;
+      --dark: #212529;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f5f7fa;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    .hero-section {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 5rem 0;
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 3rem;
+    }
+    
+    .btn-primary {
+      background-color: var(--secondary);
+      border-color: var(--secondary);
+    }
+    
+    .btn-outline-primary {
+      color: var(--secondary);
+      border-color: var(--secondary);
+    }
+    
+    .btn-primary:hover,
+    .btn-outline-primary:hover {
+      background-color: #2980b9;
+      border-color: #2980b9;
+    }
+    
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+    
+    .event-card {
+      background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+      color: white;
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--light);
+      color: var(--primary);
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      transform: translateY(-3px);
+      color: white;
+      text-decoration: none;
+    }
+    
+    .social-icon.facebook:hover { background-color: #3b5998; }
+    .social-icon.linkedin:hover { background-color: #0077b5; }
+    .social-icon.youtube:hover { background-color: #ff0000; }
+    .social-icon.instagram:hover { background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); }
+    .social-icon.twitter:hover { background-color: #1da1f2; }
+    
+    .section-title {
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--secondary);
+    }
+    
+    .past-event-item {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .past-event-item:hover {
+      background-color: rgba(52, 152, 219, 0.05);
+      padding-left: 10px;
+    }
+    
+    .past-event-item a {
+      color: var(--dark);
+      text-decoration: none;
+    }
+    
+    .past-event-item a:hover {
+      color: var(--secondary);
+    }
+    
+    footer {
+      background-color: var(--primary);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+    
+    .logo {
+      max-height: 80px;
+    }
+    
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 3rem 0;
+      }
+    }
+  </style>
 </head>
-<body class="bg-light">
-  <div class="container-fluid shadow-lg p-5 mb-4 bg-white">
-    <div class="container mt-2">
-      <div class="header">
-          <img src="images/logo.png" class="logo">
-          <h4 class="text-nog text-center">Bhutan Network Operators Group</h4>
-      </div>
-      <hr class="border-top border-1 border-warning">
-      <div class="main">
-        <div class="row">
-          <div class="col-md-12">
-            <h5 class="text-nog"><i class="fa fa-info"></i> About btNOG</h5>
-            <hr class="border-top border-1 border-primary" width="30">
 
-            <p>btNOG is an informal group set up to provide an educational and operational forum for Internet network
-              operators and interested professionals/engineers related to the Internet’s technologies and operational
-              practices to discuss matters of mutual interest, exchange technical information, and learning, and discuss
-              specific implementation issues, usually through a combination of a mailing list and annual meetings.
-            </p>
-            <!-- <a href="#" class="btn btn-outline-dark text-dark">Read More</a> -->
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="images/logo.png" alt="btNOG Logo" class="logo me-2">
+        <span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div> -->
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold mb-4">Bhutan Network Operators Group</h1>
+      <p class="lead mb-4">Advancing Internet technologies and operational practices in Bhutan</p>
+      <a href="#events" class="btn btn-light btn-lg px-4 me-2">Upcoming Events</a>
+      <a href="#about" class="btn btn-outline-light btn-lg px-4">Learn More</a>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- About Section -->
+    <section id="about" class="mb-5">
+      <h2 class="section-title">About btNOG</h2>
+      <div class="row">
+        <div class="col-lg-8">
+          <p class="lead">btNOG is an informal group set up to provide an educational and operational forum for Internet network operators and professionals.</p>
+          <p>We create a platform to discuss matters of mutual interest, exchange technical information, and learn about the Internet's technologies and operational practices. Our activities include an active mailing list and annual meetings where professionals can discuss specific implementation issues.</p>
+        </div>
+        <!-- <div class="col-lg-4">
+          <div class="card bg-light">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-people-fill me-2"></i>Our Community</h5>
+              <p class="card-text">Join our mailing list to connect network professionals from ISPs, universities, government agencies, and private companies across Bhutan.</p>
+              <a href="https://orbit.apnic.net/mailing-list/btnog@nog.bt/" class="btn btn-primary">Join Now</a>
+            </div>
           </div>
-          <div class="col-md-7 mb-3">
-            <div class="card border-0 shadow mt-3" style="min-height: 400px;">
-              <div class="card-body" style="padding: 3rem;">
-                <h5 class="card-title text-nog"><i class="fa fa-info"></i> UPCOMING btNOG
-                  <small><mark>2025</mark></small></h5>
-                <hr class="border-top border-1 border-primary" width="30">
-                <h5 class="card-text mb-4 p-3 text-white bg-dark">btNOG12: 17<sup>th</sup> - 23<sup>rd</sup> August, 2025 at Thimphu.
-                </h5>
-                <!-- <a href="http://2024.nog.bt" class="btn btn-outline-danger ls-2 mt-2" target="_blank"> 
-                  <i class="fa fa-external-link-square"></i> VISIT btNOG12</a> -->
+        </div> -->
+      </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="mb-5">
+      <h2 class="section-title">Upcoming Events</h2>
+      <div class="row">
+        <div class="col-lg-7 mb-4">
+          <div class="card event-card h-100">
+            <div class="card-body d-flex flex-column justify-content-center p-4">
+              <div class="mb-3">
+                <span class="badge bg-light text-dark mb-2">Next Event</span>
+                <h3 class="card-title">btNOG-12 | Workshop & Conference</h3>
+                <p class="card-text"><i class="bi bi-calendar-event me-2"></i>17th - 22nd August, 2025</p>
+                <p class="card-text"><i class="bi bi-geo-alt me-2"></i>Thimphu, Bhutan</p>
+              </div>
+              <div>
+                <h5>Announcement: btNOG-12 dates and Call For Volunteers</h5>
+                <p>btNOG-12 Workshop is scheduled from 17-21 August 2025, followed by one-day conference on 22 August 2025. 
+                The btNOG team is now seeking volunteers from the Bhutanese ICT community to join the btNOG Coordination Team. </p>
+                <p>If you are interested, please submit your expression of interest to btnog-coord@nog.bt (please include your contact details, where you work and 1-2 sentences on why you would like to volunteer for the coordination team).</p>
+
+                <p>btNOG annual event is driven by a dedicated group of volunteers from the community. We encourage you to be part of the btNOG-12 Coordination Team and contribute to its success. </p>
+
+                <p>New Annual Schedule: Going forward, btNOG meetings will be held in the 3rd of August every year.
+                We look forward to your participation and support!</p>
+              </div>
+              <div class="mt-auto">
+                <a href="#" class="btn btn-light">Register Now</a>
+                <a href="#" class="btn btn-outline-light ms-2">Learn More</a>
               </div>
             </div>
           </div>
-          <!-- <div class="col-md-6 mb-3">
-            <div class="card border-0 shadow">
-              <div class="card-body">
-                <h5 class="card-title text-nog"><i class="fa fa-info"></i> FUTURE btNOG</h5>
-                <hr class="border-top border-1 border-primary" width="30">
-                <p class="card-text">The tentative date:</p>
-                <h5 class="mb-4 text-muted"> btNOG11: June 2024</h5>
+        </div>
+        <div class="col-lg-5 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="card-title"><i class="bi bi-clock-history me-2"></i>Past Events</h3>
+              <div class="past-events">
+                <div class="past-event-item">
+                  <a href="http://2024.nog.bt"><i class="bi bi-check-circle-fill text-success me-2"></i>btNOG-11 August 2024, Thimphu</a>
+                </div>
+                <div class="past-event-item">
+                  <a href="http://2023.nog.bt"><i class="bi bi-check-circle-fill text-success me-2"></i>btNOG-10 June 2023, Paro</a>
+                </div>
+                <div class="past-event-item">
+                  <a href="http://2022.nog.bt"><i class="bi bi-check-circle-fill text-success me-2"></i>btNOG-9 October 2022, Thimphu</a>
+                </div>
+                <div class="past-event-item">
+                  <a href="http://2022.nog.bt/btnog-8"><i class="bi bi-check-circle-fill text-success me-2"></i>btNOG-8 October 2021, ONLINE</a>
+                </div>
+                <div class="past-event-item">
+                  <a href="http://2022.nog.bt/btnog-7"><i class="bi bi-check-circle-fill text-success me-2"></i> btNOG-7 October 2020, ONLINE</a>
+                </div>
+                <div class="past-event-item">
+                  <a href="http://2022.nog.bt/btnog-6"><i class="bi bi-check-circle-fill text-success me-2"></i> btNOG-6 June 2019, Paro</a>
+                </div>
+                <div class="past-event-item">
+                  <a href="btnog5.tashicell.com"><i class="bi bi-check-circle-fill text-success me-2"></i> btNOG-5 June 2018, Thimphu</a>
+                </div>
+                <div class="past-event-item">
+                  <a href="http://2022.nog.bt/btnog-4"><i class="bi bi-check-circle-fill text-success me-2"></i> btNOG-4 June 2017, Thimphu</a>
+                </div>
+                <div class="past-event-item">
+                  <a href="http://2022.nog.bt/btnog-3"><i class="bi bi-check-circle-fill text-success me-2"></i> btNOG-3 November 2016, Thimphu</a>
+                </div>
+                <div class="past-event-item">
+                  <a href="http://2022.nog.bt/btnog-2"><i class="bi bi-check-circle-fill text-success me-2"></i> btNOG-2 September 2015, Thimphu</a>
+                </div>
+                <div class="past-event-item">
+                  <a href="http://2022.nog.bt/btnog-1"><i class="bi bi-check-circle-fill text-success me-2"></i> btNOG-1 November 2014, Phuntsholing</a>
+                </div>
+                <!-- <div class="past-event-item">
+                  <a href="#" class="text-muted">View all past events <i class="bi bi-arrow-right"></i></a>
+                </div> -->
               </div>
-            </div>
-          </div> -->
-          <!-- <div class="col-md-8 mb-4">
-            <h5>Mark your calendar</h5>
-            <hr class="border-top border-1 border-primary" width="30">
-            <p>All global Internet conferences, meetings and workshops are listed here.</p>
-            <a href="#" class="btn btn-outline-dark text-dark">Check here</a>
-          </div> -->
-          <div class="col-md-5 mb-4">
-            <h5 class="text-nog"><i class="fa fa-info"></i> PAST btNOG</h5>
-            <hr class="border-top border-1 border-primary" width="30">
-            <ul class="list-group list-group-flush">
-              <a href="http://2024.nog.bt" class="list-group-item list-group-item-action border-0"><i
-                  class="fa fa-check-square text-success"></i> btNOG-11 August 2024, Thimphu</a>
-              <a href="http://2023.nog.bt" class="list-group-item list-group-item-action border-0"><i
-                  class="fa fa-check-square text-success"></i> btNOG-10 June 2023, Paro</a>
-              <a href="http://2022.nog.bt" class="list-group-item list-group-item-action border-0"><i
-                  class="fa fa-check-square text-success"></i> btNOG-9 October 2022, Thimphu</a>
-              <a href="http://2022.nog.bt/btnog-8" class="list-group-item list-group-item-action border-0"><i
-                  class="fa fa-check-square text-success"></i> btNOG-8 October 2021, ONLINE</a>
-              <a href="http://2022.nog.bt/btnog-7" class="list-group-item list-group-item-action border-0"><i
-                  class="fa fa-check-square text-success"></i> btNOG-7 October 2020, ONLINE</a>
-              <a href="http://2022.nog.bt/btnog-6" class="list-group-item list-group-item-action border-0"><i
-                  class="fa fa-check-square text-success"></i> btNOG-6 June 2019, Paro</a>
-              <a href="btnog5.tashicell.com" class="list-group-item list-group-item-action border-0"><i
-                  class="fa fa-check-square text-success"></i> btNOG-5 June 2018, Thimphu</a>
-              <a href="http://2022.nog.bt/btnog-4" class="list-group-item list-group-item-action border-0"><i
-                  class="fa fa-check-square text-success"></i> btNOG-4 June 2017, Thimphu</a>
-              <a href="http://2022.nog.bt/btnog-3" class="list-group-item list-group-item-action border-0"><i
-                  class="fa fa-check-square text-success"></i> btNOG-3 November 2016, Thimphu</a>
-              <a href="http://2022.nog.bt/btnog-2" class="list-group-item list-group-item-action border-0"><i
-                  class="fa fa-check-square text-success"></i> btNOG-2 September 2015, Thimphu</a>
-              <a href="http://2022.nog.bt/btnog-1" class="list-group-item list-group-item-action border-0"><i
-                  class="fa fa-check-square text-success"></i> btNOG-1 November 2014, Phuntsholing</a>
-            </ul>
-          </div>
-          <div class="col-md-6 mb-4">
-            <h5 class="text-nog"><i class="fa fa-info"></i> Enquiries and Mailinglist</h5>
-            <hr class="border-top border-1 border-primary" width="30">
-            <p>Go to the btnog mailing list <a href="https://orbit.apnic.net/mailing-list/btnog@nog.bt/" target="_blank" class="">here</a> where community
-              connect, discuss and share information related to
-              Internet and networking. </p>
-            <p>
-              To unsubscribe send an email to btnog-leave@nog.bt
-            </p>
-          </div>
-          <div class="col-md-6 mb-4">
-            <h5 class="text-nog"><i class="fa fa-info"></i> Find us on Social Media</h5>
-            <hr class="border-top border-1 border-primary" width="30">
-            <div class="social">
-              <a href="https://www.facebook.com/btNOG" target="_blank" class="fa fa-facebook"></a>
-              <a href="https://www.linkedin.com/company/btnog/" target="_blank" class="fa fa-linkedin"></a>
-              <a href="https://www.youtube.com/@btnog7802" target="_blank" class="fa fa-youtube"></a>
-              <a href="https://www.instagram.com/btnog/" target="_blank" class="fa fa-instagram"></a>
-              <a href="#" target="_blank" class="fa fa-twitter"></a>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="mt-5 p-4 text-center">
-      <p> Copyright &copy; 2025 btNOG. All Rights Reserved.</p>
-    </div>
+    <!-- Community Section -->
+    <section class="mb-5">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="card-title"><i class="bi bi-envelope me-2"></i>Mailing List</h3>
+              <p class="card-text">Join our mailing list where the community connects to discuss and share information related to Internet and networking technologies.</p>
+              <a href="https://orbit.apnic.net/mailing-list/btnog@nog.bt/" target="_blank" class="btn btn-primary">Join Mailing List</a>
+              <p class="small text-muted mt-2">To unsubscribe, send an email to btnog-leave@nog.bt</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="card-title"><i class="bi bi-people me-2"></i>Connect With Us</h3>
+              <p>Follow us on social media to stay updated with our latest news and events.</p>
+              <div class="social-links mt-3">
+                <a href="https://www.facebook.com/btNOG" target="_blank" class="social-icon facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.linkedin.com/company/btnog/" target="_blank" class="social-icon linkedin"><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.youtube.com/@btnog7802" target="_blank" class="social-icon youtube"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.instagram.com/btnog/" target="_blank" class="social-icon instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" target="_blank" class="social-icon twitter"><i class="bi bi-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <!-- <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5>btNOG</h5>
+          <p>Bhutan Network Operators Group - Advancing Internet technologies and operational practices in Bhutan since 2014.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Home</a></li>
+            <li><a href="#" class="text-white">About</a></li>
+            <li><a href="#" class="text-white">Events</a></li>
+            <li><a href="#" class="text-white">Resources</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Contact</h5>
+          <ul class="list-unstyled">
+            <li><i class="bi bi-envelope me-2"></i> info@nog.bt</li>
+            <li><i class="bi bi-globe me-2"></i> www.nog.bt</li>
+          </ul>
+        </div>
+      </div> -->
+      <!-- <hr class="bg-light"> -->
+      <div class="text-center">
+        <p class="mb-0">Copyright &copy; 2025 btNOG. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
